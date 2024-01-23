@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RandomImageController!{% endblock %}
+
+{% block body %}
+    <main role="main">
+
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">Album aléatoire</h1>
+                <p class="lead text-muted">Ce site est un projet réalisé à l'aide de <strong>Symfony 7</strong>,
+                    Bootstrap et Lorem Picsum
+                                                                                                   dans le
+                    but de pratiquer mes compétences sur ce framework ! <br>
+                    Au chargement de la page, les images
+                    ci-dessous sont générées aléatoirement.</p>
+                <p>
+                    <button class="btn btn-primary my-2" onClick="history.go(0);">Recharger la page</button>
+                    <a target="_blank" href="https://lucasboillot.fr" class="btn btn-secondary my-2">Mon Site</a>
+                </p>
+            </div>
+        </section>
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    {% for img in images %}
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <img src="{{ img }}" alt="Image aléatoire" />
+                                <div class="card-body">
+                                    <p class="card-text">Ceci est une description exemple de cette carte générée
+                                        grâce à Twig & Symfony
+                                        .</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                        </div>
+                                        <small class="text-muted">9 mins</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </main>
+{% endblock %}
